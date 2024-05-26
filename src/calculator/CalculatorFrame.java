@@ -224,23 +224,19 @@ public class CalculatorFrame extends javax.swing.JFrame {
             
             double number1 = Double.parseDouble(number1TextField.getText());
             double number2 = Double.parseDouble(number2TextField.getText());
-            double result = addition.resultado(number1, number2);
-            
-            this.history.addOperation(new Operation(number1, number2, "+", result));
-            
-            Response response = ControllerOp.controllerAdd(number1, number2, operator, result, history);
-        
+                       
+            Response response = ControllerOp.controllerAdd(number1TextField.getText(), number2TextField.getText(), "+", history);
+                        
             if (response.getStatus() >= 500) {
                 JOptionPane.showMessageDialog(null, response.getMessage(), "Error " + response.getStatus(), JOptionPane.ERROR_MESSAGE);
             } else if (response.getStatus() >= 400) {
                 JOptionPane.showMessageDialog(null, response.getMessage(), "Error " + response.getStatus(), JOptionPane.WARNING_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, response.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
-                result = addition.resultado(number1, number2);
+                double result = addition.resultado(number1, number2);
                 ResultAdd.setText("" + result);
             }
-            
-            
+                       
         
     }//GEN-LAST:event_ButtonAddActionPerformed
 
@@ -251,11 +247,8 @@ public class CalculatorFrame extends javax.swing.JFrame {
             
             double number1 = Double.parseDouble(number1TextField.getText());
             double number2 = Double.parseDouble(number2TextField.getText());
-            double result = subtract.resultado(number1, number2);
             
-            this.history.addOperation(new Operation(number1, number2, "-", result));
-            
-            Response response = ControllerOp.controllerAdd(number1, number2, operator, result, history);
+            Response response = ControllerOp.controllerSub(number1TextField.getText(), number1TextField.getText(), "-", history);
         
             if (response.getStatus() >= 500) {
                 JOptionPane.showMessageDialog(null, response.getMessage(), "Error " + response.getStatus(), JOptionPane.ERROR_MESSAGE);
@@ -263,7 +256,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, response.getMessage(), "Error " + response.getStatus(), JOptionPane.WARNING_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, response.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
-                result = subtract.resultado(number1, number2);
+                double result = subtract.resultado(number1, number2);
                 ResultAdd.setText("" + result);
             }            
        
@@ -276,11 +269,8 @@ public class CalculatorFrame extends javax.swing.JFrame {
             
             double number1 = Double.parseDouble(number1TextField.getText());
             double number2 = Double.parseDouble(number2TextField.getText());
-            double result = multiply.resultado(number1, number2);
             
-            this.history.addOperation(new Operation(number1, number2, "*", result));
-            
-            Response response = ControllerOp.controllerAdd(number1, number2, operator, result, history);
+            Response response = ControllerOp.controllerAdd(number1TextField.getText(), number1TextField.getText(), "*",history);
         
             if (response.getStatus() >= 500) {
                 JOptionPane.showMessageDialog(null, response.getMessage(), "Error " + response.getStatus(), JOptionPane.ERROR_MESSAGE);
@@ -288,7 +278,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, response.getMessage(), "Error " + response.getStatus(), JOptionPane.WARNING_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, response.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
-                result = multiply.resultado(number1, number2);
+                double result = multiply.resultado(number1, number2);
                 ResultAdd.setText("" + result);
             }    
                     
@@ -301,11 +291,8 @@ public class CalculatorFrame extends javax.swing.JFrame {
             
             double number1 = Double.parseDouble(number1TextField.getText());
             double number2 = Double.parseDouble(number2TextField.getText());
-            double result = division.resultado(number1, number2);
             
-            this.history.addOperation(new Operation(number1, number2, "/", result));
-            
-            Response response = ControllerOp.controllerAdd(number1, number2, operator, result, history);
+            Response response = ControllerOp.ControllerDiv(number1TextField.getText(), number1TextField.getText(), "/", history);
             
             if (response.getStatus() >= 500) {
                 JOptionPane.showMessageDialog(null, response.getMessage(), "Error " + response.getStatus(), JOptionPane.ERROR_MESSAGE);
@@ -313,7 +300,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, response.getMessage(), "Error " + response.getStatus(), JOptionPane.WARNING_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, response.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
-                result = division.resultado(number1, number2);
+                double result = division.resultado(number1, number2);
                 ResultAdd.setText("" + result);
             }          
             
@@ -327,11 +314,8 @@ public class CalculatorFrame extends javax.swing.JFrame {
             
             double number1 = Double.parseDouble(number1TextField.getText());
             double number2 = Double.parseDouble(number2TextField.getText());
-            double result = power.resultado(number1, number2);
             
-            this.history.addOperation(new Operation(number1, number2, "/", result));
-            
-            Response response = ControllerOp.controllerAdd(number1, number2, operator, result, history);
+            Response response = ControllerOp.ControllerPow(number1TextField.getText(), number1TextField.getText(), "^", history);
             
             if (response.getStatus() >= 500) {
                 JOptionPane.showMessageDialog(null, response.getMessage(), "Error " + response.getStatus(), JOptionPane.ERROR_MESSAGE);
@@ -339,7 +323,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, response.getMessage(), "Error " + response.getStatus(), JOptionPane.WARNING_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, response.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
-                result = power.resultado(number1, number2);
+                double result = power.resultado(number1, number2);
                 ResultAdd.setText("" + result);
             }
         

@@ -9,6 +9,10 @@ import calculator.Operation;
 import core.Controllers.utils.Response;
 import core.Controllers.utils.Status;
 import core.Operaciones.Addition;
+import core.Operaciones.Division;
+import core.Operaciones.Multiply;
+import core.Operaciones.Power;
+import core.Operaciones.Subtract;
 
 /**
  *
@@ -16,7 +20,7 @@ import core.Operaciones.Addition;
  */
 public class ControllerOp {
     
-    public static Response controllerAdd (String number1, String number2, String operator, String result, History history){
+    public static Response controllerAdd (String number1, String number2, String operator, History history){
         
         try{
             double num1,num2;
@@ -56,7 +60,7 @@ public class ControllerOp {
         }
     }
     
-    public static Response controllerSub (String number1, String number2, String operator, String result,History history){
+    public static Response controllerSub (String number1, String number2, String operator, History history){
         
         try{
             double num1,num2;
@@ -83,9 +87,9 @@ public class ControllerOp {
                     return new Response("operator must be not empty", Status.BAD_REQUEST);
                 }
             
-            Addition addition = new Addition ();
+            Subtract subtract = new Subtract();
             
-            history.addOperation(new Operation(Double.parseDouble(number1), Double.parseDouble(number2), operator,addition.resultado(num1, num2)));
+            history.addOperation(new Operation(Double.parseDouble(number1), Double.parseDouble(number2), operator,subtract.resultado(num1, num2)));
             
             return new Response("Operation successfully", Status.CREATED);
             
@@ -95,7 +99,7 @@ public class ControllerOp {
         }
     }
     
-    public static Response controllerMult(String number1, String number2, String operator, String result,History history){
+    public static Response controllerMult(String number1, String number2, String operator,History history){
         
         try{
             double num1,num2;
@@ -123,9 +127,9 @@ public class ControllerOp {
                 }
             
             
-            Addition addition = new Addition ();
+            Multiply multiply = new Multiply();
             
-            history.addOperation(new Operation(Double.parseDouble(number1), Double.parseDouble(number2), operator,addition.resultado(num1, num2)));
+            history.addOperation(new Operation(Double.parseDouble(number1), Double.parseDouble(number2), operator,multiply.resultado(num1, num2)));
             
             return new Response("Operation successfully", Status.CREATED);
             
@@ -135,7 +139,7 @@ public class ControllerOp {
         }
     }
     
-    public static Response ControllerMult(String number1, String number2, String operator, String result,History history){
+    public static Response ControllerPow(String number1, String number2, String operator,History history){
         
         try{
             double num1,num2;
@@ -163,9 +167,9 @@ public class ControllerOp {
                 }
             
             
-            Addition addition = new Addition ();
+           Power power = new Power();
             
-            history.addOperation(new Operation(Double.parseDouble(number1), Double.parseDouble(number2), operator,addition.resultado(num1, num2)));
+            history.addOperation(new Operation(Double.parseDouble(number1), Double.parseDouble(number2), operator,power.resultado(num1, num2)));
                         
             return new Response("Operation successfully", Status.CREATED);
             
@@ -175,7 +179,7 @@ public class ControllerOp {
         }
     }
     
-    public static Response ControllerDiv (String number1, String number2, String operator, String result, History history){
+    public static Response ControllerDiv (String number1, String number2, String operator, History history){
         try{
             double num1,num2;
             try {
@@ -206,9 +210,9 @@ public class ControllerOp {
                 }
             
             
-            Addition addition = new Addition ();
+            Division division = new Division();
             
-            history.addOperation(new Operation(Double.parseDouble(number1), Double.parseDouble(number2), operator,addition.resultado(num1, num2)));
+            history.addOperation(new Operation(Double.parseDouble(number1), Double.parseDouble(number2), operator,division.resultado(num1, num2)));
                         
             return new Response("Operation successfully", Status.CREATED);
             
