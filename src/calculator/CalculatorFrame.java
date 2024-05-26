@@ -222,7 +222,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
             this.history.addOperation(new Operation(number1, number2, "+", result));
             
             jTextField3.setText("" + result);
-        } catch (Exception ex) {
+        } catch (Exception ex) {            
             JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
