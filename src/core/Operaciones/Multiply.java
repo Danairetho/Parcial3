@@ -4,10 +4,20 @@
  */
 package core.Operaciones;
 
+import core.Interfaz.InterfaceOp;
+
 /**
  *
  * @author danao
  */
-public class Multiply {
+public class Multiply implements InterfaceOp{
+
+    public Multiply() {
+    }
+
+    @Override
+    public double resultado(double number1, double number2) {
+        return number1 * number2;
+    }
     
 }

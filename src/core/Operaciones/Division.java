@@ -4,10 +4,20 @@
  */
 package core.Operaciones;
 
+import core.Interfaz.InterfaceOp;
+
 /**
  *
  * @author danao
  */
-public class Division {
+public class Division implements InterfaceOp {
+
+    public Division() {
+    }
+
+    @Override
+    public double resultado(double number1, double number2) {
+        return number1 / number2;
+    }
     
 }

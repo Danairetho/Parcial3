@@ -4,10 +4,20 @@
  */
 package core.Operaciones;
 
+import core.Interfaz.InterfaceOp;
+
 /**
  *
  * @author danao
  */
-public class Power {
+public class Power implements InterfaceOp {
+
+    public Power() {
+    }
+
+    @Override
+    public double resultado(double number1, double number2) {
+        return Math.pow(number1, number2);
+    }
     
 }
