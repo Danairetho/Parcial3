@@ -20,6 +20,28 @@ import core.Operaciones.Subtract;
  */
 public class ControllerOp {
     
+    public static boolean validarPunto(String numero) {
+                int contadorPuntos = 0;
+                for (char c : numero.toCharArray()) {
+                    if (c == '.') {
+                        contadorPuntos++;
+                    }
+                    if (contadorPuntos > 1) {
+                        return false;
+                    }
+                }
+                return contadorPuntos == 1;
+            }
+    
+    public static boolean ValidarNDecimales(String numero) {
+                int indexPunto = numero.indexOf('.');
+                if (indexPunto >= 0) {
+                    int longitudParteDecimal = numero.length() - indexPunto - 1;
+                    return longitudParteDecimal > 3;
+                }
+                return false;
+            }
+    
     public static Response controllerAdd (String number1, String number2, String operator, History history){
         
         try{
@@ -47,6 +69,23 @@ public class ControllerOp {
                     return new Response("operator must be not empty", Status.BAD_REQUEST);
                 }
             
+        
+            if (ValidarNDecimales(number1)) {
+                return new Response("Number1 must have not more than 3 decimals", Status.BAD_REQUEST);
+            }
+        
+            if (ValidarNDecimales(number2)) {
+                return new Response("Number2 must have not more than 3 decimals", Status.BAD_REQUEST);
+            }
+        
+            if (!validarPunto(number1)) {
+                return new Response("Number1 must have only 1 point", Status.BAD_REQUEST);
+            }
+        
+            if (!validarPunto(number2)) {
+                return new Response("Number2 must have only 1 point", Status.BAD_REQUEST);
+            }
+            
             Addition addition = new Addition ();
             
             history.addOperation(new Operation(Double.parseDouble(number1), Double.parseDouble(number2), operator,addition.resultado(num1, num2)));
@@ -59,6 +98,7 @@ public class ControllerOp {
             return new Response("Unexpected error", Status.INTERNAL_SERVER_ERROR);
         }
     }
+
     
     public static Response controllerSub (String number1, String number2, String operator, History history){
         
