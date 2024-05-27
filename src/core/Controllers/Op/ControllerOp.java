@@ -30,7 +30,7 @@ public class ControllerOp {
                         return false;
                     }
                 }
-                return contadorPuntos == 1;
+                return true;
             }
     
     public static boolean ValidarNDecimales(String numero) {
