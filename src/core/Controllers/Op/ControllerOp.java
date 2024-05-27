@@ -127,6 +127,22 @@ public class ControllerOp {
                     return new Response("operator must be not empty", Status.BAD_REQUEST);
                 }
             
+            if (ValidarNDecimales(number1)) {
+                return new Response("Number1 must have not more than 3 decimals", Status.BAD_REQUEST);
+            }
+        
+            if (ValidarNDecimales(number2)) {
+                return new Response("Number2 must have not more than 3 decimals", Status.BAD_REQUEST);
+            }
+        
+            if (!validarPunto(number1)) {
+                return new Response("Number1 must have only 1 point", Status.BAD_REQUEST);
+            }
+        
+            if (!validarPunto(number2)) {
+                return new Response("Number2 must have only 1 point", Status.BAD_REQUEST);
+            }
+            
             Subtract subtract = new Subtract();
             
             history.addOperation(new Operation(Double.parseDouble(number1), Double.parseDouble(number2), operator,subtract.resultado(num1, num2)));
@@ -165,6 +181,22 @@ public class ControllerOp {
             if (operator.equals("")) {
                     return new Response("operator must be not empty", Status.BAD_REQUEST);
                 }
+            
+            if (ValidarNDecimales(number1)) {
+                return new Response("Number1 must have not more than 3 decimals", Status.BAD_REQUEST);
+            }
+        
+            if (ValidarNDecimales(number2)) {
+                return new Response("Number2 must have not more than 3 decimals", Status.BAD_REQUEST);
+            }
+        
+            if (!validarPunto(number1)) {
+                return new Response("Number1 must have only 1 point", Status.BAD_REQUEST);
+            }
+        
+            if (!validarPunto(number2)) {
+                return new Response("Number2 must have only 1 point", Status.BAD_REQUEST);
+            }
             
             
             Multiply multiply = new Multiply();
@@ -205,6 +237,22 @@ public class ControllerOp {
             if (operator.equals("")) {
                     return new Response("operator must be not empty", Status.BAD_REQUEST);
                 }
+            
+            if (ValidarNDecimales(number1)) {
+                return new Response("Number1 must have not more than 3 decimals", Status.BAD_REQUEST);
+            }
+        
+            if (ValidarNDecimales(number2)) {
+                return new Response("Number2 must have not more than 3 decimals", Status.BAD_REQUEST);
+            }
+        
+            if (!validarPunto(number1)) {
+                return new Response("Number1 must have only 1 point", Status.BAD_REQUEST);
+            }
+        
+            if (!validarPunto(number2)) {
+                return new Response("Number2 must have only 1 point", Status.BAD_REQUEST);
+            }
             
             
            Power power = new Power();
@@ -248,6 +296,22 @@ public class ControllerOp {
             if (number2.equals("0")) {
                     return new Response("Can not divided by 0", Status.BAD_REQUEST);
                 }
+            
+            if (ValidarNDecimales(number1)) {
+                return new Response("Number1 must have not more than 3 decimals", Status.BAD_REQUEST);
+            }
+        
+            if (ValidarNDecimales(number2)) {
+                return new Response("Number2 must have not more than 3 decimals", Status.BAD_REQUEST);
+            }
+        
+            if (!validarPunto(number1)) {
+                return new Response("Number1 must have only 1 point", Status.BAD_REQUEST);
+            }
+        
+            if (!validarPunto(number2)) {
+                return new Response("Number2 must have only 1 point", Status.BAD_REQUEST);
+            }
             
             
             Division division = new Division();
