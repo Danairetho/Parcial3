@@ -4,6 +4,7 @@
  */
 package calculator;
 
+import core.Controllers.Op.ControllerHis;
 import core.Controllers.Op.ControllerOp;
 import core.Controllers.utils.Response;
 import core.Operaciones.Addition;
@@ -339,12 +340,14 @@ public class CalculatorFrame extends javax.swing.JFrame {
 
     private void UpdateHisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateHisActionPerformed
         // TODO add your handling code here:
-        ArrayList<Operation> operationHistory = this.history.getOperations();
-        Collections.reverse(this.history.getOperations());
         
-        DefaultListModel model = new DefaultListModel();
+        History history = new History();
+        ControllerHis controllerhis = new ControllerHis(history);
+        ArrayList<Operation> operationHistory = controllerhis.getOperationsInReverseOrder();
+        
+        DefaultListModel<Operation> model = new DefaultListModel<>();
         model.addAll(operationHistory);
-        Lista.setModel(model);
+        //Lista.setModel(model1);
     }//GEN-LAST:event_UpdateHisActionPerformed
 
     /**

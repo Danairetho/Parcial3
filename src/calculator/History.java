@@ -12,6 +12,8 @@ import java.util.ArrayList;
  */
 public class History {
     
+     private static History instance;
+    
     private ArrayList<Operation> operations;
 
     public History() {
@@ -24,6 +26,13 @@ public class History {
 
     public ArrayList<Operation> getOperations() {
         return operations;
+    }
+    
+    public static History getInstance() {
+        if (instance == null) {
+            instance = new History();
+        }
+        return instance;
     }
     
 }
