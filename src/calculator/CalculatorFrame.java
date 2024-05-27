@@ -347,7 +347,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
         
         DefaultListModel<Operation> model = new DefaultListModel<>();
         model.addAll(operationHistory);
-        //Lista.setModel(model1);
+        
     }//GEN-LAST:event_UpdateHisActionPerformed
 
     /**
